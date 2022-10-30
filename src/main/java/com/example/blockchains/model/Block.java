@@ -10,7 +10,8 @@ import java.security.NoSuchAlgorithmException;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
-@Getter @Setter
+@Getter
+@Setter
 public class Block {
     private static final Logger LOGGER = LoggerFactory.getLogger(Block.class);
 
@@ -31,7 +32,7 @@ public class Block {
      * TODO:
      * - We're starting with the default value of nonce here and incrementing it by one. But there are more
      * sophisticated strategies to start and increment a nonce in real-world applications.
-     *
+     * <p>
      * - we're not verifying our data here, which is typically an important part.
      */
     public String mineBlock(int prefix) {
@@ -61,6 +62,4 @@ public class Block {
         }
         return buffer.toString();
     }
-
-
 }
