@@ -32,10 +32,13 @@ public class BlockchainUnitTest {
         boolean flag = false;
         for (int i = 0; i < blockchain.size(); i++) {
             String previousHash = i == 0 ? "0" : blockchain.get(i - 1).getHash();
+
             Block currentBlock = blockchain.get(i);
-            flag = currentBlock.getHash().equals(currentBlock.calculateBlockHash())
+            String currentBlockHash = currentBlock.getHash();
+
+            flag = currentBlockHash.equals(currentBlock.calculateBlockHash())
                     && previousHash.equals(currentBlock.getPreviousHash())
-                    && currentBlock.getHash().substring(0, PREFIX).equals(PREFIX_STRING);
+                    && currentBlockHash.substring(0, PREFIX).equals(PREFIX_STRING);
             if (!flag) {
                 break;
             }
