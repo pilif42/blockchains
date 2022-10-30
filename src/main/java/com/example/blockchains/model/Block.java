@@ -33,7 +33,9 @@ public class Block {
      * - We're starting with the default value of nonce here and incrementing it by one. But there are more
      * sophisticated strategies to start and increment a nonce in real-world applications.
      * <p>
-     * - we're not verifying our data here, which is typically an important part.
+     * - We're not verifying our data (often in the form of multiple transactions) here. A typical implementation of
+     * blockchain sets a restriction on how much data can be part of a block. It also sets up rules on how a transaction
+     * can be verified.
      */
     public String mineBlock(int prefix) {
         String prefixString = new String(new char[prefix]).replace('\0', '0');
